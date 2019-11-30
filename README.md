@@ -5,7 +5,7 @@
 ## 效果图
 
 频率转换
-![频率转换](./docs/images/frequency.jpg){:width="50%"}
+![频率转换](./docs/images/frequency.jpg)
 
 功率转换
 ![功率转换](./docs/images/power.jpg)
