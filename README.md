@@ -2,6 +2,14 @@
 
 本工具是为NB-Iot做功率，频率换算的工具，后续为增加其他使用的工具。
 
+## 效果图
+
+频率转换
+![频率转换](./docs/images/frequency.jpg)
+
+功率转换
+![功率转换](./docs/images/power.jpg)
+
 ## Project setup
 ```
 npm install
