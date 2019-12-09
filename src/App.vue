@@ -3,8 +3,7 @@
     <div id="nav">
       <van-tabbar route>
         <van-tabbar-item replace to="/" icon="home-o">主页</van-tabbar-item>
-        <van-tabbar-item replace to="/frequency" icon="clock-o">频点</van-tabbar-item>
-        <van-tabbar-item replace to="/power" icon="chart-trending-o">功率</van-tabbar-item>
+        <van-tabbar-item replace to="/grid" icon="clock-o">工具</van-tabbar-item>
       </van-tabbar>
     </div>
     <router-view />
