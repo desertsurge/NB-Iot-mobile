@@ -3,7 +3,8 @@
     <van-grid clickable :column-num="2">
       <van-grid-item icon="discount" text="功率" to="/power" />
       <van-grid-item icon="exchange" text="频率" to="/frequency" />
-      <van-grid-item icon="eye-o" text="5G频点" to="/nr"/>
+      <van-grid-item icon="eye-o" text="2.6G频点" to="/nr"/>
+      <van-grid-item icon="after-sale" text="3G-6G频点" to="/nr36"/>
     </van-grid>
   </div>
 </template>
