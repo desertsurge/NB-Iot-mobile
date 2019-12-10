@@ -61,7 +61,6 @@ export default {
     },
     computedSSBN() {
       let g = this.computedG;
-      window.console.info(this.e);
       if (this.f == 24) {
         return this.roundUp((g + 12 * 10 * this.c - 3000) / 1.44);
       } else if (this.f == 48) {
