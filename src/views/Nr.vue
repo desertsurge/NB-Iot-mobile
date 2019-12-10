@@ -1,25 +1,30 @@
 <template>
   <div class="nr">
-    <van-cell-group title="配置参数">
-      <van-field v-model="a" label="中心频点" placeholder="请输入中心频点" />
-      <van-field v-model="b" label="系统带宽" placeholder="请输入系统带宽" />
-      <van-field v-model="c" label="子载波间隔" placeholder="请输入子载波间隔" />
-      <van-field v-model="d" label="最大RB数" placeholder="请输入最大RB数" />
-      <van-field v-model="e" label="offset to Carrier" placeholder="请输入offset to Carrier" />
-      <van-field v-model="f" label="Coreset #0 RB数" placeholder="请输入Coreset #0 RB数" />
+    <van-cell-group title="配置参数" class="settings">
+      <van-field v-model="a" type="number" label="中心频点" placeholder="请输入中心频点" />
+      <van-field v-model="b" type="number" label="系统带宽" placeholder="请输入系统带宽" />
+      <van-field v-model="c" type="number" label="子载波间隔" placeholder="请输入子载波间隔" />
+      <van-field v-model="d" type="number" label="最大RB数" placeholder="请输入最大RB数" />
+      <van-field
+        v-model="e"
+        type="number"
+        label="offsetToCarrier"
+        placeholder="请输入offsetToCarrier"
+      />
+      <van-field v-model="f" type="number" label="Coreset #0 RB数" placeholder="请输入Coreset #0 RB数" />
     </van-cell-group>
 
-    <van-cell-group title="输出">
+    <van-cell-group title="输出" class="output-container">
       <van-cell title="arfcnValueNr" :value="a*1000/5" />
       <van-cell title="系统最低频点" :value="computedG" />
-      <van-cell title="最低SSB的N" :value="computedSSBN" />
-      <van-cell title="最低SSB的GSCN" :value="computedGSCN" />
+      <van-cell title="最低频SSB的N" :value="computedSSBN" />
+      <van-cell title="最低频SSB的GSCN" :value="computedGSCN" />
       <van-cell title="SSB中心频点H" :value="computedH" />
       <van-cell title="绝对频点point A" :value="computedPointA" />
       <van-cell title="OffsetToPointA" :value="computedOffsetToPointA" />
       <van-cell title="KSSB" :value="computedKSSB" />
       <van-cell title="SSB绝对频点" :value="computedSSBAbs" />
-      <van-cell title="PointA绝对频点" :value="computedGSCN" />
+      <van-cell title="PointA绝对频点" :value="computedPointAAbs" />
     </van-cell-group>
   </div>
 </template>
@@ -74,21 +79,21 @@ export default {
       return this.computedG - this.e * this.c * 12;
     },
     computedKSSB() {
-      return (
+      return Math.round(
         ((this.computedH - 12 * 10 * this.c - this.computedPointA) / 0.015) % 24
       );
     },
     computedOffsetToPointA() {
-      return (
+      return Math.round(
         (this.computedH -
           10 * 12 * this.c -
           this.computedKSSB * 0.015 -
           this.computedPointA) /
-        (0.015 * 12)
+          (0.015 * 12)
       );
     },
     computedSSBAbs() {
-      return this.computedH * 200;
+      return Math.round(this.computedH * 200);
     },
     computedPointAAbs() {
       return this.computedPointA * 200;
@@ -105,3 +110,11 @@ export default {
   }
 };
 </script>
+<style>
+.output-container {
+  margin-bottom: 50px;
+}
+.settings .van-field__label {
+  width: 140px;
+}
+</style>
