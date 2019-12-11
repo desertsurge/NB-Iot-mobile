@@ -54,7 +54,8 @@ export default {
       }
     },
     computedG() {
-      return this.a - (this.d * 12 * this.c) / 2;
+      let n = this.a - (this.d * 12 * this.c) / 2;
+      return Number(n.toFixed(2));
     },
     computedSSBN() {
       let g = this.computedG;
@@ -72,7 +73,7 @@ export default {
       return 3 * this.computedSSBN;
     },
     computedH() {
-      return this.computedSSBN * 1.2 + this.computedM * 0.05;
+      return Number((this.computedSSBN * 1.2 + this.computedM * 0.05).toFixed(2));
     },
     computedPointA() {
       return this.computedG - this.e * this.c * 12;

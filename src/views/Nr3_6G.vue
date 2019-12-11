@@ -57,7 +57,7 @@ export default {
       return Math.round(600000 + (this.a - 3000) / 0.015);
     },
     computedG() {
-      return this.a - (this.d * 12 * this.c) / 2;
+      return Number((this.a - (this.d * 12 * this.c) / 2).toFixed(2));
     },
     computedSSBN() {
       let g = this.computedG;
@@ -74,7 +74,7 @@ export default {
       return 7499 + this.computedSSBN;
     },
     computedH() {
-      return this.computedSSBN * 1.44 + 3000;
+      return Number((this.computedSSBN * 1.44 + 3000).toFixed(2));
     },
     computedPointA() {
       return this.computedG - this.e * this.c * 12;

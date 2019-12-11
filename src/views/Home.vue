@@ -4,8 +4,8 @@
       <div class="logo_ctt">
         <img class="logo" alt="Vue logo" src="../assets/logo.png" />
       </div>
-      <div class="item">本工具主要针对NB-Iot相关测试开发工具辅助，帮助工程师快速处理事务。</div>
-      <div>
+      <!-- <div class="item">本工具主要针对NB-Iot相关测试开发工具辅助，帮助工程师快速处理事务。</div> -->
+      <div class="github_out_ctt">
         <div class="github_ctt">
           <a href="https://github.com/desertsurge/NB-Iot-mobile" target="_blank" class="github_a">
             <img
@@ -43,7 +43,7 @@ export default {
     };
   },
   created() {
-    this.homeDiv.height = window.innerHeight + "px";
+    this.homeDiv.height = (window.innerHeight - 60) + "px";
     this.homeDiv.width = window.innerWidth + "px";
   }
 };
@@ -54,15 +54,19 @@ export default {
 }
 .logo_ctt {
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 .logo {
-  width: 50%;
+  width: 100px;
 }
 .item {
   width: 70%;
   margin: 10px auto;
+}
+.github_out_ctt {
+position:absolute;
+bottom: 60px;
 }
 .github_ctt {
   background: #ffeef8;
