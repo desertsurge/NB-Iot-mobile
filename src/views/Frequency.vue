@@ -229,7 +229,6 @@ export default {
     } else {
       self.bandClick(1);
     }
-    this.androidFinishApp();
   },
   computed: {
     result() {
@@ -253,17 +252,6 @@ export default {
       this.selectedBand = band;
       this.role = selected.down;
       localStorage.setItem("band.select", band);
-    },
-    androidFinishApp() {
-      // const globalEvent = weex.requireModule('globalEvent');
-      // globalEvent.addEventListener('homeBack', options => {
-      //     if (this.curHomeBackTriggerTimes === this.maxHomeBackTriggerTimes) {
-      //         this.$router.finish();
-      //     } else {
-      //         this.curHomeBackTriggerTimes++;
-      //         this.$notice.toast({message: `再点一次应用将关闭`})
-      //     }
-      // })
     },
     realPx(val) {
       return val; //750 / weex.config.eros.deviceWidth;

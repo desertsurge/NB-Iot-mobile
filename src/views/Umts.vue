@@ -245,7 +245,6 @@ export default {
     } else {
       self.bandClick(1);
     }
-    this.androidFinishApp();
   },
   computed: {
     result() {
