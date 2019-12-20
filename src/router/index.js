@@ -34,6 +34,11 @@ const routes = [
     path: '/nr36',
     name: 'nr36',
     component: () => import(/* webpackChunkName: "about" */ '../views/Nr3_6G.vue')
+  },
+  {
+    path: '/gsm',
+    name: 'gsm',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Gsm.vue')
   }
 ]
 
