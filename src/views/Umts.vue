@@ -36,135 +36,149 @@ import localStorage from "localStorage";
 const standard = {
   1: {
     down: {
-      low: 2110,
-      high: 2170,
+      low: 2112.4,
+      high: 2167.6,
       off: 0
     }
   },
   2: {
     down: {
-      low: 1930,
-      high: 1990,
-      off: 600
+      low: 1932.4,
+      high: 1987.6,
+      off: 0
     }
   },
   3: {
     down: {
-      low: 1805,
-      high: 1880,
-      off: 1200
+      low: 1807.4,
+      high: 1877.6,
+      off: 1575
     }
   },
   4: {
     down: {
-      low: 2110,
-      high: 2155,
-      off: 1950
+      low: 2112.4,
+      high: 2152.6,
+      off: 1805
     }
   },
   5: {
     down: {
-      low: 869,
-      high: 894,
-      off: 2400
+      low: 871.4,
+      high: 891.6,
+      off: 0
     }
   },
   6: {
     down: {
-      low: 875,
-      high: 885,
-      off: 2650
+      low: 877.4,
+      high: 882.6,
+      off: 0
     }
   },
   7: {
     down: {
-      low: 2620,
-      high: 2690,
-      off: 2750
+      low: 2622.4,
+      high: 2687.6,
+      off: 2175
     }
   },
   8: {
     down: {
-      low: 925,
-      high: 960,
-      off: 3450
+      low: 927.4,
+      high: 957.6,
+      off: 340
     }
   },
   9: {
     down: {
-      low: 1844.9,
-      high: 1879.9,
-      off: 3800
+      low: 1847.4,
+      high: 1877.4,
+      off: 0
     }
   },
   10: {
     down: {
-      low: 2110,
-      high: 2170,
-      off: 4150
+      low: 2112.4,
+      high: 2167.6,
+      off: 1490
     }
   },
   11: {
     down: {
-      low: 1475.9,
-      high: 1495.0,
-      off: 4750
+      low: 1478.4,
+      high: 1493.4,
+      off: 736
     }
   },
   12: {
     down: {
-      low: 729,
-      high: 746,
-      off: 5010
+      low: 731.4,
+      high: 743.6,
+      off: -37
     }
   },
   13: {
     down: {
-      low: 746,
-      high: 756,
-      off: 5180
+      low: 748.4,
+      high: 753.6,
+      off: -55
     }
   },
   14: {
     down: {
-      low: 758,
-      high: 768,
-      off: 5280
-    }
-  },
-  17: {
-    down: {
-      low: 734,
-      high: 746,
-      off: 5730
-    }
-  },
-  18: {
-    down: {
-      low: 860,
-      high: 875,
-      off: 5850
+      low: 760.4,
+      high: 765.6,
+      off: -63
     }
   },
   19: {
     down: {
-      low: 875,
-      high: 890,
-      off: 6000
+      low: 877.4,
+      high: 887.6,
+      off: 735
     }
   },
   20: {
     down: {
-      low: 791,
-      high: 821,
-      off: 6450
+      low: 793.4,
+      high: 818.6,
+      off: -109
     }
   },
   21: {
     down: {
-      low: 1495.9,
-      high: 1510.9,
-      off: 6450
+      low: 1498.4,
+      high: 1508.4,
+      off: 1326
+    }
+  },
+  22: {
+    down: {
+      low: 3512.4,
+      high: 3587.6,
+      off: 2580
+    }
+  },
+  25: {
+    down: {
+      low: 1932.4,
+      high: 1992.6,
+      off: 910
+    }
+  },
+  26: {
+    down: {
+      low: 861.4,
+      high: 891.6,
+      off: -291
+    }
+  },
+  32: {
+    down: {
+      low: 1454.4,
+      high: 1493.6,
+      off: 131
     }
   }
 };
@@ -186,11 +200,13 @@ export default {
         12,
         13,
         14,
-        17,
-        18,
         19,
         20,
-        21
+        21,
+        22,
+        25,
+        26,
+        32
       ],
       role: {
         low: 0,
@@ -223,7 +239,7 @@ export default {
     //         self.bandClick(1);
     //     }
     // });
-    let bandSelect = localStorage.getItem("band.select");
+    let bandSelect = localStorage.getItem("uband.select");
     if (bandSelect) {
       self.bandClick(bandSelect);
     } else {
@@ -237,7 +253,7 @@ export default {
       if (r == "") {
         return r;
       }
-      return (this.value * 100 - this.role.low * 100 + this.role.off * 10) / 10;
+      return (this.value - this.role.off) * 5;
     },
     itemHeight() {
       return this.scrollHeight / this.bands.length;
@@ -252,18 +268,7 @@ export default {
       let selected = standard[band];
       this.selectedBand = band;
       this.role = selected.down;
-      localStorage.setItem("band.select", band);
-    },
-    androidFinishApp() {
-      // const globalEvent = weex.requireModule('globalEvent');
-      // globalEvent.addEventListener('homeBack', options => {
-      //     if (this.curHomeBackTriggerTimes === this.maxHomeBackTriggerTimes) {
-      //         this.$router.finish();
-      //     } else {
-      //         this.curHomeBackTriggerTimes++;
-      //         this.$notice.toast({message: `再点一次应用将关闭`})
-      //     }
-      // })
+      localStorage.setItem("uband.select", band);
     },
     realPx(val) {
       return val; //750 / weex.config.eros.deviceWidth;

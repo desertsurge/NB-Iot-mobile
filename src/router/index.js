@@ -39,6 +39,11 @@ const routes = [
     path: '/gsm',
     name: 'gsm',
     component: () => import(/* webpackChunkName: "about" */ '../views/Gsm.vue')
+  },
+  {
+    path: '/umts',
+    name: 'umts',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Umts.vue')
   }
 ]
 
