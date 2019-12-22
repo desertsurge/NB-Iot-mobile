@@ -13,37 +13,47 @@ const routes = [
   {
     path: '/frequency',
     name: 'frequency',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Frequency.vue')
+    component: () => import('../views/Frequency.vue')
   },
   {
     path: '/power',
     name: 'power',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Power.vue')
+    component: () => import('../views/Power.vue')
   },
   {
     path: '/grid',
     name: 'grid',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Grid.vue')
+    component: () => import('../views/Grid.vue')
   },
   {
     path: '/nr',
     name: 'nr',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Nr.vue')
+    component: () => import('../views/Nr.vue')
   },
   {
     path: '/nr36',
     name: 'nr36',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Nr3_6G.vue')
+    component: () => import('../views/Nr3_6G.vue')
   },
   {
     path: '/gsm',
     name: 'gsm',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Gsm.vue')
+    component: () => import('../views/Gsm.vue')
   },
   {
     path: '/umts',
     name: 'umts',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Umts.vue')
+    component: () => import('../views/Umts.vue')
+  },
+  {
+    path: '/Fdd',
+    name: 'Fdd',
+    component: () => import('../views/Fdd.vue')
+  },
+  {
+    path: '/Tdd',
+    name: 'Tdd',
+    component: () => import('../views/Tdd.vue')
   }
 ]
 

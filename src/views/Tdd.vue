@@ -34,186 +34,88 @@
 // import text from '@/components/text.vue'
 import localStorage from "localStorage";
 const standard = {
-  1: {
+  33: {
     down: {
-      low: 2110,
-      high: 2170,
-      off: 0
+      low: 1900,
+      high: 1920,
+      off: 36000
     }
   },
-  2: {
+  34: {
+    down: {
+      low: 2010,
+      high: 2025,
+      off: 36200
+    }
+  },
+  35: {
+    down: {
+      low: 1850,
+      high: 1910,
+      off: 36350
+    }
+  },
+  36: {
     down: {
       low: 1930,
       high: 1990,
-      off: 600
+      off: 36950
     }
   },
-  3: {
+  37: {
     down: {
-      low: 1805,
-      high: 1880,
-      off: 1200
+      low: 1910,
+      high: 1930,
+      off: 37550
     }
   },
-  4: {
+  38: {
     down: {
-      low: 2110,
-      high: 2155,
-      off: 1950
+      low: 2570,
+      high: 2620,
+      off: 37750
     }
   },
-  5: {
+  39: {
     down: {
-      low: 869,
-      high: 894,
-      off: 2400
+      low: 1880,
+      high: 1920,
+      off: 38250
     }
   },
-  6: {
+  40: {
     down: {
-      low: 875,
-      high: 885,
-      off: 2650
+      low: 2300,
+      high: 2400,
+      off: 38650
     }
   },
-  7: {
+  41: {
     down: {
-      low: 2620,
+      low: 2496,
       high: 2690,
-      off: 2750
+      off: 39650
     }
   },
-  8: {
+  42: {
     down: {
-      low: 925,
-      high: 960,
-      off: 3450
+      low: 3400,
+      high: 3600,
+      off: 41590
     }
   },
-  9: {
+  43: {
     down: {
-      low: 1844.9,
-      high: 1879.9,
-      off: 3800
+      low: 3600,
+      high: 3800,
+      off: 43590
     }
   },
-  10: {
+  44: {
     down: {
-      low: 2110,
-      high: 2170,
-      off: 4150
-    }
-  },
-  11: {
-    down: {
-      low: 1475.9,
-      high: 1495.0,
-      off: 4750
-    }
-  },
-  12: {
-    down: {
-      low: 729,
-      high: 746,
-      off: 5010
-    }
-  },
-  13: {
-    down: {
-      low: 746,
-      high: 756,
-      off: 5180
-    }
-  },
-  14: {
-    down: {
-      low: 758,
-      high: 768,
-      off: 5280
-    }
-  },
-  17: {
-    down: {
-      low: 734,
-      high: 746,
-      off: 5730
-    }
-  },
-  18: {
-    down: {
-      low: 860,
-      high: 875,
-      off: 5850
-    }
-  },
-  19: {
-    down: {
-      low: 875,
-      high: 890,
-      off: 6000
-    }
-  },
-  20: {
-    down: {
-      low: 791,
-      high: 821,
-      off: 6450
-    }
-  },
-  21: {
-    down: {
-      low: 1495.9,
-      high: 1510.9,
-      off: 6450
-    }
-  },
-  22: {
-    down: {
-      low: 3510,
-      high: 3590,
-      off: 6600
-    }
-  },
-  23: {
-    down: {
-      low: 2180,
-      high: 2200,
-      off: 7500
-    }
-  },
-  24: {
-    down: {
-      low: 1525,
-      high: 1559,
-      off: 7700
-    }
-  },
-  25: {
-    down: {
-      low: 1930,
-      high: 1995,
-      off: 8040
-    }
-  },
-  26: {
-    down: {
-      low: 859,
-      high: 894,
-      off: 8690
-    }
-  },
-  27: {
-    down: {
-      low: 852,
-      high: 869,
-      off: 9040
-    }
-  },
-  28: {
-    down: {
-      low: 758,
+      low: 703,
       high: 803,
-      off: 9210
+      off: 45590
     }
   }
 };
@@ -221,32 +123,18 @@ export default {
   data() {
     return {
       bands: [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
       ],
       role: {
         low: 0,
@@ -270,20 +158,11 @@ export default {
   },
   created() {
     let self = this;
-    // this.$storage
-    // self.$storage.get('band.select').then(resData => {
-    //     // window.console.log(`获取选择的Band：${resData}`);
-    //     if (resData) {
-    //         self.bandClick(resData);
-    //     } else {
-    //         self.bandClick(1);
-    //     }
-    // });
-    let bandSelect = localStorage.getItem("band.select");
+    let bandSelect = localStorage.getItem("tdd.band.select");
     if (bandSelect) {
       self.bandClick(bandSelect);
     } else {
-      self.bandClick(1);
+      self.bandClick(33);
     }
   },
   computed: {
@@ -298,7 +177,7 @@ export default {
       return this.scrollHeight / this.bands.length;
     },
     scrollHeight() {
-      let sh = window.outerHeight; //weex.config.eros.deviceHeight - this.statusBarHeight - this.touchBarHeight;
+      let sh = window.outerHeight;
       return this.realPx(sh) - 50;
     }
   },
@@ -307,7 +186,7 @@ export default {
       let selected = standard[band];
       this.selectedBand = band;
       this.role = selected.down;
-      localStorage.setItem("band.select", band);
+      localStorage.setItem("tdd.band.select", band);
     },
     realPx(val) {
       return val; //750 / weex.config.eros.deviceWidth;

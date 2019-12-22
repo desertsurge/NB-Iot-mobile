@@ -107,7 +107,7 @@ const standard = {
   11: {
     down: {
       low: 1475.9,
-      high: 1495.0,
+      high: 1495.9,
       off: 4750
     }
   },
@@ -259,8 +259,6 @@ export default {
 
       curHomeBackTriggerTimes: 1,
       maxHomeBackTriggerTimes: 2,
-      // statusBarHeight: weex.config.eros.statusBarHeight ? weex.config.eros.statusBarHeight : 40,
-      // touchBarHeight: weex.config.eros.touchBarHeight ? weex.config.eros.touchBarHeight : 20
       statusBarHeight: 40,
       touchBarHeight: 20
     };
@@ -270,16 +268,7 @@ export default {
   },
   created() {
     let self = this;
-    // this.$storage
-    // self.$storage.get('band.select').then(resData => {
-    //     // window.console.log(`获取选择的Band：${resData}`);
-    //     if (resData) {
-    //         self.bandClick(resData);
-    //     } else {
-    //         self.bandClick(1);
-    //     }
-    // });
-    let bandSelect = localStorage.getItem("band.select");
+    let bandSelect = localStorage.getItem("ftt.band.select");
     if (bandSelect) {
       self.bandClick(bandSelect);
     } else {
@@ -307,7 +296,7 @@ export default {
       let selected = standard[band];
       this.selectedBand = band;
       this.role = selected.down;
-      localStorage.setItem("band.select", band);
+      localStorage.setItem("ftt.band.select", band);
     },
     realPx(val) {
       return val; //750 / weex.config.eros.deviceWidth;
