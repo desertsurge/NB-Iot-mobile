@@ -30,11 +30,11 @@ export default {
   data() {
     return {
       bgImg: {
-        background:
-          "url(" +
-          require("../assets/home.jpg") +
-          ") no-repeat center center fixed",
-        backgroundSize: "cover"
+        // background:
+        //   "url(" +
+        //   require("../assets/home.jpg") +
+        //   ") no-repeat center center fixed",
+        // backgroundSize: "cover"
       },
       homeDiv: {
         height: "100%",
