@@ -31,7 +31,7 @@ export default {
     },
     toW() {
       if (this.dbm) {
-        this.w = (Math.pow(10, this.dbm / 10) / 1000).toFixed(2);
+        this.w = (Math.pow(10, this.dbm / 10) / 1000).toFixed(10);
       }
     },
     reset() {
