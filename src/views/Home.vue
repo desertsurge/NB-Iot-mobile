@@ -8,11 +8,8 @@
       <div class="github_out_ctt">
         <div class="github_ctt">
           <a href="https://github.com/desertsurge/NB-Iot-mobile" target="_blank" class="github_a">
-            <img
-              src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
-              class="github_a_img"
-            />
-            <div class="github_a_ctt">
+            <img src="../assets/github-logo-mona.svg" class="github_a_img" />
+            <div class="github_a_ctt"> 
               <h5>欢迎关注，添砖加瓦</h5>
               <span>更多功能在路上，有需求，有想法，欢迎关注讨论</span>
             </div>
@@ -30,11 +27,9 @@ export default {
   data() {
     return {
       bgImg: {
-        // background:
-        //   "url(" +
-        //   require("../assets/home.jpg") +
-        //   ") no-repeat center center fixed",
-        // backgroundSize: "cover"
+        background:
+          "url(" + require("../assets/home.jpg") + ") no-repeat center center fixed",
+        backgroundSize: "cover"
       },
       homeDiv: {
         height: "100%",
