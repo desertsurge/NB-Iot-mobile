@@ -9,6 +9,7 @@
       <van-grid-item icon="gem" text="UMTS频点" to="/umts"/>
       <van-grid-item icon="award" text="LTE频点" to="/Fdd"/>
       <van-grid-item icon="diamond" text="TDD频点" to="/Tdd"/>
+      <van-grid-item icon="fire" text="峰值速率" to="/PeakRate"/>
     </van-grid>
   </div>
 </template>

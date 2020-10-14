@@ -54,6 +54,11 @@ const routes = [
     path: '/Tdd',
     name: 'Tdd',
     component: () => import('../views/Tdd.vue')
+  },
+  {
+    path: '/PeakRate',
+    name: 'PeakRate',
+    component: () => import('../views/Peak-rate.vue')
   }
 ]
 
