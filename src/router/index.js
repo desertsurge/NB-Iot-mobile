@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import isWeixin from '../script/browser'
 
 Vue.use(VueRouter)
 
@@ -9,6 +10,14 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/noAuth',
+    name: 'noAuth',
+    component: () => import('../views/NoAuth.vue'),
+    meta: {
+      noAuth: true
+    }
   },
   {
     path: '/frequency',
@@ -64,6 +73,14 @@ const routes = [
 
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (!isWeixin() && !to.meta.noAuth) {
+    next({ path: '/noAuth' })
+  } else {
+    next()
+  }
 })
 
 export default router
