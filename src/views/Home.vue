@@ -27,8 +27,7 @@ export default {
   data() {
     return {
       bgImg: {
-        background:
-          "url(" + require("../assets/home.jpg") + ") no-repeat center center fixed",
+        background: "url(" + require("../assets/home.jpg") + ") no-repeat center center fixed",
         backgroundSize: "cover"
       },
       homeDiv: {
@@ -60,8 +59,9 @@ export default {
   margin: 10px auto;
 }
 .github_out_ctt {
-position:absolute;
-bottom: 60px;
+  position:absolute;
+  bottom: 60px;
+  width: 100%;
 }
 .github_ctt {
   background: #ffeef8;
