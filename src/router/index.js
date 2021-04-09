@@ -68,6 +68,11 @@ const routes = [
     path: '/PeakRate',
     name: 'PeakRate',
     component: () => import('../views/Peak-rate.vue')
+  },
+  {
+    path: '/NrFrequency',
+    name: 'NrFrequency',
+    component: () => import('../views/NrFrequency.vue')
   }
 ]
 
