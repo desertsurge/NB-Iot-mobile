@@ -9,13 +9,10 @@
     </van-cell-group>
 
     <van-cell-group title="配置参数" class="settings">
-      <template #button>
-        <van-button size="small" type="primary">Send SMS</van-button>
-      </template>
-      <van-field v-model="centerA" type="number" @focusin="focusIn" @focusout="focusout" label="中心频点" placeholder="请输入中心频点" />
-      <van-field v-model="arfcnValueNr" @focusin="focusIn" @focusout="focusout" type="number" label="arfcnValueNr" placeholder="请输入arfcnValueNr" />
-      <van-field v-model="pointA" @focusin="focusIn" @focusout="focusout" type="number" label="PointA" placeholder="请输入PointA" />
-      <van-field v-model="pointAAbs" @focusin="focusIn" @focusout="focusout" type="number" label="PointA绝对频点" placeholder="请输入PointA绝对频点" />
+      <van-field v-model="pCenterA" type="number" @focusin="focusIn" label="中心频点" placeholder="请输入中心频点" />
+      <van-field v-model="pArfcnValueNr" @focusin="focusIn" type="number" label="arfcnValueNr" placeholder="请输入arfcnValueNr" />
+      <van-field v-model="pPointA" @focusin="focusIn" type="number" label="PointA" placeholder="请输入PointA" />
+      <van-field v-model="pPointAAbs" @focusin="focusIn" type="number" label="PointA绝对频点" placeholder="请输入PointA绝对频点" />
       <div style="margin: 16px; text-align: center">
         <van-button round size="small" type="danger" @click="clearA" style="width: 45%">
           清除
@@ -67,9 +64,9 @@ export default {
     vanButton: Button
   },
   data() {
-    // centerA 是 a的输入值
+    // pCenterA 是 a的输入值
     return { ctype: 1, a: 0/*2565*/, b: 100, c: 0.03, d: 273, e: 0, f: 48,
-      arfcnValueNr: 0/*513000*/, centerA:0, pointA:0, pointAAbs: 0, ssbCenterH: 0, ssbAbs: 0,
+      arfcnValueNr: 0/*513000*/, pArfcnValueNr: 0, pCenterA:0, pPointA:0, pPointAAbs: 0, ssbCenterH: 0, ssbAbs: 0,
       mark: 0};
   },
   computed: {
@@ -126,6 +123,7 @@ export default {
       return this.computedPointA * 200;
     },
     computedA() {
+      window.console.log('computeA')
       this.methodA();
       return (this.arfcnValueNr / 200);
     },
@@ -152,26 +150,52 @@ export default {
       this.a = this.arfcnValueNr / 200
     },
     focusIn(evt) {
-      window.console.log(evt)
       evt.currentTarget.select();
     },
-    focusout(evt) {
-      window.console.log(evt)
-    },
     clearA() {
-      this.centerA = 0
-      this.arfcnValueNr = 0
-      this.pointA = 0
-      this.pointAAbs = 0
+      this.pCenterA = 0
+      this.pArfcnValueNr = 0
+      this.pPointA = 0
+      this.pPointAAbs = 0
     },
     compute() {
       window.console.log("计算")
-      if(this.centerA != 0) {
-        this.a = this.centerA
+      if (this.pCenterA != 0) {
+        window.console.log('计算pCenterA')
+        if(this.pCenterA < 3000) {
+          this.a = this.pCenterA
+          this.arfcnValueNr = this.pCenterA * 200
+        } else {
+          window.console.log('大于')
+        }
+      } else if (this.pArfcnValueNr != 0) {
+        window.console.log('计算arfcnValueNr')
+        if(this.pArfcnValueNr < 600000) {
+          this.arfcnValueNr = this.pArfcnValueNr
+        } else {
+          window.console.log('大于')
+
+        }
+      } else if (this.pPointA != 0) {
+        window.console.log('计算pPointA')
+        if(this.pPointA < 3000) {
+          this.a = this.pPointA
+          this.arfcnValueNr = this.pPointA * 200
+        } else {
+          window.console.log('大于')
+
+        }
+      } else if(this.pPointAAbs != 0) {
+        window.console.log('计算pPointAAbs')
+        if(this.pPointAAbs < 600000) {
+          this.a = this.pPointAAbs * 0.005;
+        } else {
+          window.console.log('大于')
+          this.a = this.pPointAAbs - 600000* 0.015 + 3000;
+        }
       }
     },
     focusInB(evt) {
-      window.console.log(evt)
       evt.currentTarget.select();
     },
     clearB() {
