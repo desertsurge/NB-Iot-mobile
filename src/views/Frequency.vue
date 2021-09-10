@@ -157,7 +157,7 @@ const standard = {
     down: {
       low: 791,
       high: 821,
-      off: 6450
+      off: 6150
     }
   },
   21: {
