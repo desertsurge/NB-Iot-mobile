@@ -2,14 +2,14 @@
   <div class="home" :style="bgImg">
     <div class="home-div" :style="homeDiv">
       <div class="logo_ctt">
-        <img class="logo" alt="Vue logo" src="../assets/logo.png" />
+        <img class="logo" alt="Vue logo" src="../assets/qrcode.png" />
       </div>
       <!-- <div class="item">本工具主要针对NB-Iot相关测试开发工具辅助，帮助工程师快速处理事务。</div> -->
       <div class="github_out_ctt">
         <div class="github_ctt">
           <a href="javascript:void(0)" class="github_a">
             <img src="../assets/github-logo-mona.svg" class="github_a_img" />
-            <div class="github_a_ctt"> 
+            <div class="github_a_ctt">
               <h5>欢迎关注，添砖加瓦</h5>
               <span>希望能给苦逼的人带来帮助</span>
             </div>
