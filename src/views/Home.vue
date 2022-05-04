@@ -26,20 +26,24 @@ export default {
   components: {},
   data() {
     return {
+      count: 3,
       bgImg: {
-        background: "url(" + require("../assets/home.jpg") + ") no-repeat center center fixed",
-        backgroundSize: "cover"
+        background: "no-repeat center center fixed",
+        backgroundSize: "cover",
+        // backgroundImage: 'url(../images/home-0.jpg)'
       },
       homeDiv: {
         height: "100%",
-        width: "100%"
-      }
+        width: "100%",
+      },
     };
   },
   created() {
-    this.homeDiv.height = (window.innerHeight - 60) + "px";
+    this.homeDiv.height = window.innerHeight - 60 + "px";
     this.homeDiv.width = window.innerWidth + "px";
-  }
+    const index = Math.round(Math.random() * 99) % this.count
+    this.bgImg.backgroundImage = `url(../images/home-${index}.jpg)`;
+  },
 };
 </script>
 <style scoped>
@@ -59,7 +63,7 @@ export default {
   margin: 10px auto;
 }
 .github_out_ctt {
-  position:absolute;
+  position: absolute;
   bottom: 60px;
   width: 100%;
 }
