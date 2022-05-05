@@ -42,7 +42,7 @@ export default {
     this.homeDiv.height = window.innerHeight - 60 + "px";
     this.homeDiv.width = window.innerWidth + "px";
     const index = Math.round(Math.random() * 99) % this.count
-    this.bgImg.backgroundImage = `url(../images/home-${index}.jpg)`;
+    this.bgImg.backgroundImage = `url(./images/home-${index}.jpg)`;
   },
 };
 </script>
