@@ -1,0 +1,15 @@
+.group-title {
+    color: #FFFFFF;
+    font-size: 22px;
+    line-height: 32px;
+    background-color: #001938;
+    vertical-align: middle;
+
+    position: relative;
+    z-index: 1;
+    line-height: 22px;
+    text-align: center;
+    background-color: #fff;
+    -webkit-user-select: none;
+    user-select: none;
+}

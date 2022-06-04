@@ -1,13 +1,26 @@
 <template>
   <div class="wrapper">
+    <page-header backUrl="grid" title="功率换算"></page-header>
+
+    <!-- <div class="group-title">功率换算</div> -->
     <div class="content">
-      <input type="number" v-model="dbm" placeholder="请输入dBm值" class="input input-top" />
+      <input
+        type="number"
+        v-model="dbm"
+        placeholder="请输入dBm值"
+        class="input input-top"
+      />
       <div class="convert-btns">
         <div class="btn convert iconfont" @click="toW">转换成瓦</div>
         <div class="btn reset iconfont" @click="reset">重置</div>
         <div class="btn convert iconfont" @click="toDbm">转换成Dbm</div>
       </div>
-      <input type="number" v-model="w" placeholder="请输入瓦数" class="input input-bottom" />
+      <input
+        type="number"
+        v-model="w"
+        placeholder="请输入瓦数"
+        class="input input-bottom"
+      />
     </div>
   </div>
 </template>
@@ -15,11 +28,15 @@
 <script>
 //10*Math.log10(20*1000) = 43 =>dBm
 //Math.pow(10, 43/10)/1000 = 20 =>W
+import PageHeader from '../components/PageHeader.vue';
 export default {
+  components: {
+    PageHeader,
+  },
   data() {
     return {
       dbm: "",
-      w: ""
+      w: "",
     };
   },
   created() {},
@@ -37,8 +54,8 @@ export default {
     reset() {
       this.dbm = "";
       this.w = "";
-    }
-  }
+    },
+  },
 };
 </script>
 

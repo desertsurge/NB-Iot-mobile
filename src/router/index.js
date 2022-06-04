@@ -70,9 +70,14 @@ const routes = [
     component: () => import('../views/Peak-rate.vue')
   },
   {
-    path: '/NrFrequency',
-    name: 'NrFrequency',
-    component: () => import('../views/NrFrequency.vue')
+    path: '/SsbFrequency',
+    name: 'SsbFrequency',
+    component: () => import('../views/SsbFrequency.vue')
+  },
+  {
+    path: '/riv',
+    name: 'Riv',
+    component: () => import('../views/Riv.vue')
   }
 ]
 

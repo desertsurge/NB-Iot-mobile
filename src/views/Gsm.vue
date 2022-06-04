@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <page-header backUrl="grid" title="GMS频点"></page-header>
     <div class="content">
       <input type="number" v-model="f" placeholder="请输入频率" class="input input-top" />
       <div class="convert-btns">
@@ -39,6 +40,7 @@
 
 <script>
 import { Row, Col } from "vant";
+import PageHeader from "../components/PageHeader.vue";
 
 export default {
   data() {
@@ -49,8 +51,9 @@ export default {
   },
   components: {
     vanRow: Row,
-    vanCol: Col
-  },
+    vanCol: Col,
+    PageHeader
+},
   created() {},
   methods: {
     pgsm2point() {

@@ -1,4 +1,6 @@
 <template>
+<div class="wrapper">
+  <page-header backUrl="grid" title="3G以下频点"></page-header>
   <div class="nr">
     <van-cell-group title="配置参数" class="settings">
       <van-field v-model="a" type="number" label="中心频点" placeholder="请输入中心频点" />
@@ -27,15 +29,18 @@
       <van-cell title="PointA绝对频点" :value="computedPointAAbs" />
     </van-cell-group>
   </div>
+</div>
 </template>
 
 <script>
 // @ is an alias to /src
-import { Field, CellGroup, /* RadioGroup, Radio,  */ Cell } from "vant";
+import { Field, CellGroup, Cell } from "vant";
 
+import PageHeader from '../components/PageHeader.vue';
 export default {
   name: "nr",
   components: {
+    PageHeader,
     vanField: Field,
     vanCellGroup: CellGroup,
     // vanRadioGroup: RadioGroup,

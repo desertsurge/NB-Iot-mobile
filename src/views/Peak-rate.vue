@@ -1,6 +1,6 @@
 <template>
   <div class="peak-rate">
-    <van-nav-bar title="峰值速率" />
+    <page-header backUrl="grid" title="峰值速率"></page-header>
     <van-cell-group title="配置参数" class="settings">
       <van-field name="type" label="模式">
         <template #right-icon>
@@ -70,8 +70,8 @@ import {
   Picker,
   Popup,
   Cell,
-  NavBar,
 } from "vant";
+import PageHeader from "../components/PageHeader.vue";
 
 export default {
   name: "Peak-rate",
@@ -83,8 +83,8 @@ export default {
     vanPicker: Picker,
     vanPopup: Popup,
     vanCell: Cell,
-    vanNavBar: NavBar,
-  },
+    PageHeader
+},
   data() {
     return {
       type: "up",

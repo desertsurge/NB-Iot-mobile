@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <page-header backUrl="grid" title="TDD频点"></page-header>
     <div class="main" :style="{height: scrollHeight + 'px'}">
       <div class="band-ctt">
         <div
@@ -33,6 +34,7 @@
 <script>
 // import text from '@/components/text.vue'
 import localStorage from "localStorage";
+import PageHeader from "../components/PageHeader.vue";
 const standard = {
   33: {
     down: {
@@ -154,8 +156,8 @@ export default {
     };
   },
   components: {
-    // text
-  },
+    PageHeader
+},
   created() {
     let self = this;
     let bandSelect = localStorage.getItem("tdd.band.select");

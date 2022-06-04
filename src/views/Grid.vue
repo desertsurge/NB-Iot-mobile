@@ -7,10 +7,11 @@
       <van-grid-item icon="medal" text="3G-6G频点" to="/nr36"/>
       <van-grid-item icon="underway" text="GSM频点" to="/gsm"/>
       <van-grid-item icon="gem" text="UMTS频点" to="/umts"/>
-      <van-grid-item icon="award" text="LTE频点" to="/Fdd"/>
+      <van-grid-item icon="award" text="FDD频点" to="/Fdd"/>
       <van-grid-item icon="diamond" text="TDD频点" to="/Tdd"/>
       <van-grid-item icon="fire" text="峰值速率" to="/PeakRate"/>
-      <van-grid-item icon="fire" text="NR频点转换" to="/NrFrequency"/>
+      <van-grid-item icon="bag" text="SSB互转" to="/SsbFrequency"/>
+      <van-grid-item icon="point-gift" text="Location & Bandwidth" to="/riv"/>
     </van-grid>
   </div>
 </template>
