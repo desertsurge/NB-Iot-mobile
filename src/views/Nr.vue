@@ -1,40 +1,35 @@
 <template>
-<div class="wrapper">
-  <page-header backUrl="grid" title="3G以下频点"></page-header>
-  <div class="nr">
-    <van-cell-group title="配置参数" class="settings">
-      <van-field v-model="a" type="number" label="中心频点" placeholder="请输入中心频点" />
-      <van-field v-model="b" type="number" label="系统带宽" placeholder="请输入系统带宽" />
-      <van-field v-model="c" type="number" label="子载波间隔" placeholder="请输入子载波间隔" />
-      <van-field v-model="d" type="number" label="最大RB数" placeholder="请输入最大RB数" />
-      <van-field
-        v-model="e"
-        type="number"
-        label="offsetToCarrier"
-        placeholder="请输入offsetToCarrier"
-      />
-      <van-field v-model="f" type="number" label="Coreset #0 RB数" placeholder="请输入Coreset #0 RB数" />
-    </van-cell-group>
+  <div class="wrapper">
+    <page-header backUrl="grid" title="3G以下频点"></page-header>
+    <div class="nr">
+      <van-cell-group title="配置参数" class="settings">
+        <van-field v-model="a" type="number" label="中心频点" placeholder="请输入中心频点" />
+        <van-field v-model="b" type="number" label="系统带宽" placeholder="请输入系统带宽" />
+        <van-field v-model="c" type="number" label="子载波间隔" placeholder="请输入子载波间隔" />
+        <van-field v-model="d" type="number" label="最大RB数" placeholder="请输入最大RB数" />
+        <van-field v-model="e" type="number" label="offsetToCarrier" placeholder="请输入offsetToCarrier" />
+        <van-field v-model="f" type="number" label="Coreset #0 RB数" placeholder="请输入Coreset #0 RB数" />
+      </van-cell-group>
 
-    <van-cell-group title="输出" class="output-container">
-      <van-cell title="arfcnValueNr" :value="a*1000/5" />
-      <van-cell title="系统最低频点" :value="computedG" />
-      <van-cell title="最低频SSB的N" :value="computedSSBN" />
-      <van-cell title="最低频SSB的GSCN" :value="computedGSCN" />
-      <van-cell title="SSB中心频点H" :value="computedH" />
-      <van-cell title="绝对频点point A" :value="computedPointA" />
-      <van-cell title="OffsetToPointA" :value="computedOffsetToPointA" />
-      <van-cell title="KSSB" :value="computedKSSB" />
-      <van-cell title="SSB绝对频点" :value="computedSSBAbs" />
-      <van-cell title="PointA绝对频点" :value="computedPointAAbs" />
-    </van-cell-group>
+      <van-cell-group title="输出" class="output-container">
+        <van-cell title="arfcnValueNr" :value="a * 1000 / 5" />
+        <van-cell title="系统最低频点" :value="computedG" />
+        <van-cell title="最低频SSB的N" :value="computedSSBN" />
+        <van-cell title="最低频SSB的GSCN" :value="computedGSCN" />
+        <van-cell title="SSB中心频点H" :value="computedH" />
+        <van-cell title="绝对频点point A" :value="computedPointA" />
+        <van-cell title="OffsetToPointA" :value="computedOffsetToPointA" />
+        <van-cell title="KSSB" :value="computedKSSB" />
+        <van-cell title="SSB绝对频点" :value="computedSSBAbs" />
+        <van-cell title="PointA绝对频点" :value="computedPointAAbs" />
+      </van-cell-group>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 // @ is an alias to /src
-import { Field, CellGroup, Cell } from "vant";
+import { Field, CellGroup, Cell, Notify } from "vant";
 
 import PageHeader from '../components/PageHeader.vue';
 export default {
@@ -52,10 +47,16 @@ export default {
   },
   computed: {
     computedM() {
-      if (this.ctype == 1) {
-        return 3;
-      } else {
+      if (this.mod((this.a - 0.005))) {
         return 1;
+      } else if (this.mod(this.a)) {
+        return 3;
+      } else if (this.mod((this.a - 0.01))) {
+        return 5;
+      } else {
+        // alert("频点错误")
+        Notify({ type: 'danger', message: `频点错误: ${this.a}` });
+        return -1;
       }
     },
     computedG() {
@@ -65,6 +66,9 @@ export default {
     computedSSBN() {
       let g = this.computedG;
       let m = this.computedM;
+      if (m === -1) {
+        return 0;
+      }
       if (this.f == 24) {
         return this.roundUp((g + 12 * 10 * this.c - m * 0.05) / 1.2);
       } else if (this.f == 48) {
@@ -78,6 +82,9 @@ export default {
       return 3 * this.computedSSBN;
     },
     computedH() {
+      if (this.computedM === -1) {
+        return 0;
+      }
       return Number((this.computedSSBN * 1.2 + this.computedM * 0.05).toFixed(2));
     },
     computedPointA() {
@@ -94,7 +101,7 @@ export default {
           10 * 12 * this.c -
           this.computedKSSB * 0.015 -
           this.computedPointA) /
-          (0.015 * 12)
+        (0.015 * 12)
       );
     },
     computedSSBAbs() {
@@ -111,6 +118,9 @@ export default {
       } else {
         return Math.floor(x) == x ? x : Math.floor(x) + 1;
       }
+    },
+    mod(m) {
+      return (m * 1000) % 15 === 0;
     }
   }
 };
@@ -119,6 +129,7 @@ export default {
 .output-container {
   margin-bottom: 50px;
 }
+
 .settings .van-field__label {
   width: 140px;
 }
