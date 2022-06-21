@@ -79,7 +79,7 @@ export default {
       return 0;
     },
     computedGSCN() {
-      return 3 * this.computedSSBN;
+      return 3 * this.computedSSBN + (this.computedM - 3) / 2;
     },
     computedH() {
       if (this.computedM === -1) {
