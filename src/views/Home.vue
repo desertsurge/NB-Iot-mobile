@@ -10,8 +10,7 @@
           <a href="javascript:void(0)" class="github_a">
             <img src="../assets/github-logo-mona.svg" class="github_a_img" />
             <div class="github_a_ctt">
-              <h5>欢迎关注，添砖加瓦</h5>
-              <span>希望能给苦逼的人带来帮助</span>
+              <span>希望能帮助到通信人</span>
             </div>
           </a>
         </div>
