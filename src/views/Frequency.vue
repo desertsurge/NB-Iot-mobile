@@ -30,9 +30,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // import text from '@/components/text.vue'
-import localStorage from "localStorage";
+import localStorage from "../script/localStorage";
 const standard = {
   1: {
     down: {
@@ -279,6 +279,7 @@ export default {
     //         self.bandClick(1);
     //     }
     // });
+    
     let bandSelect = localStorage.getItem("band.select");
     if (bandSelect) {
       self.bandClick(bandSelect);

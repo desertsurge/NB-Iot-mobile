@@ -1,6 +1,6 @@
 <template>
   <div class="nr">
-    
+
     <page-header backUrl="grid" title="SSB互转"></page-header>
 
     <van-cell-group class="settings output-container">
@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // @ is an alias to /src
 import { Field, CellGroup, Button } from "vant";
 import PageHeader from "../components/PageHeader.vue";

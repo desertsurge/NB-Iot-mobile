@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // @ is an alias to /src
 import { Field, CellGroup, Cell, Notify } from "vant";
 

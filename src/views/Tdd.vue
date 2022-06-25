@@ -31,9 +31,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // import text from '@/components/text.vue'
-import localStorage from "localStorage";
+import localStorage from "../script/localStorage";
 import PageHeader from "../components/PageHeader.vue";
 const standard = {
   33: {

@@ -30,7 +30,7 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
 import PageHeader from '../components/PageHeader.vue';
 export default {
   components: {

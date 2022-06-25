@@ -40,15 +40,15 @@
 
       <van-cell title="带宽" :value="bandwidth">
         <select name="bandwidth" v-model="bandwidth" class="form-control">
-          <template v-for="opt in bandwidthOpts">
-            <option :value="opt.value" :key="opt.value">{{ opt.key }}</option>
+          <template v-for="opt in bandwidthOpts" :key="opt.value">
+            <option :value="opt.value">{{ opt.key }}</option>
           </template>
         </select>
       </van-cell>
       <van-cell title="帧结构" :value="frame">
         <select name="frame" v-model="frame" class="form-control">
-          <template v-for="opt in frameOpt">
-            <option :value="opt.value" :key="opt.value">{{ opt.key }}</option>
+          <template v-for="opt in frameOpt" :key="opt.value">
+            <option :value="opt.value">{{ opt.key }}</option>
           </template>
         </select>
       </van-cell>
@@ -60,7 +60,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // @ is an alias to /src
 import {
   Field,

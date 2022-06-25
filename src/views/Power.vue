@@ -25,7 +25,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 //10*Math.log10(20*1000) = 43 =>dBm
 //Math.pow(10, 43/10)/1000 = 20 =>W
 import PageHeader from '../components/PageHeader.vue';

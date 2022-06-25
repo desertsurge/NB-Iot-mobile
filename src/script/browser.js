@@ -1,5 +1,5 @@
 function isWeixn() {
-    // return true;
+    return true;
     var ua = navigator.userAgent.toLowerCase();
     if (false || ua.match(/MicroMessenger/i) == "micromessenger") {
         return true;

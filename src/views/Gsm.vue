@@ -38,7 +38,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { Row, Col } from "vant";
 import PageHeader from "../components/PageHeader.vue";
 

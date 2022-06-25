@@ -1,12 +1,24 @@
-import Vue from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue'
+import axios from 'axios'
 import router from './router'
-// import 'normalize.css/normalize.css'
-import './assets/css/style.css'
+import store from './store'
 
-Vue.config.productionTip = true
+import { Button, Dialog, Icon,
+    Divider, Tab, Tabs, Toast, Notify, Tabbar, TabbarItem,
+    Image as VanImage, Lazyload, Loading   } from 'vant'
+import App from './App.vue'
 
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
+import 'lib-flexible'
+import 'vant/lib/index.css'
+import './assets/css/style.scss'
+
+const app = createApp(App)
+app.config.globalProperties.$axios = axios
+
+app.use(Button).use(Dialog).use(Icon)
+    .use(Divider).use(Tab).use(Tabs)
+    .use(Toast).use(Notify).use(Tabbar).use(TabbarItem)
+    .use(VanImage).use(Lazyload).use(Loading)
+app.use(router).use(store)
+
+app.mount('#app')
