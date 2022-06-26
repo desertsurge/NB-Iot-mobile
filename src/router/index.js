@@ -5,7 +5,7 @@ import Home from '../views/Home.vue'
 // const path = require('path')
 
 const isProduction = process.env.NODE_ENV === 'production';
-const basePath = isProduction ? '/tive-vue3-vite-demo/' : '/'
+const basePath = isProduction ? '/nbiot-pages/' : '/'
 const routes = [
     {
         path: '/',

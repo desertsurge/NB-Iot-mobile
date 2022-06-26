@@ -8,7 +8,7 @@ import { Button, Dialog, Icon,
     Image as VanImage, Lazyload, Loading   } from 'vant'
 import App from './App.vue'
 
-import 'lib-flexible'
+// import 'lib-flexible'
 import 'vant/lib/index.css'
 import './assets/css/style.scss'
 
