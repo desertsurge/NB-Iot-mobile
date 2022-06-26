@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 import { defineAsyncComponent } from 'vue'
 import isWeixin from '../script/browser'
 import Home from '../views/Home.vue'
@@ -96,7 +96,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(basePath), // 如果是根目录部署请配置为 /
+    history: createWebHashHistory(basePath), // 如果是根目录部署请配置为 /
     routes: routes,
 })
 router.beforeEach((to, from, next) => {
