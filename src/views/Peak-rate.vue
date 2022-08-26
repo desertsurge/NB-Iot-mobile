@@ -10,25 +10,6 @@
           </van-radio-group>
         </template>
       </van-field>
-
-      <van-field
-        readonly
-        clickable
-        name="layer"
-        :value="layer"
-        label="层数"
-        placeholder="点击选择层数"
-        @click="showLayerPicker = true"
-      />
-      <van-popup v-model="showLayerPicker" position="bottom">
-        <van-picker
-          show-toolbar
-          :columns="layerColumns"
-          @confirm="onLayerConfirm"
-          @cancel="showLayerPicker = false"
-        />
-      </van-popup>
-
       <van-field name="module" label="调制方法">
         <template #right-icon>
           <van-radio-group v-model="module" direction="horizontal">
@@ -37,6 +18,13 @@
           </van-radio-group>
         </template>
       </van-field>
+      <van-cell title="层数" :value="layer">
+        <select name="layer" v-model="layer" class="form-control">
+          <template v-for="opt in layerColumns">
+            <option :value="opt" :key="opt">{{ opt }}</option>
+          </template>
+        </select>
+      </van-cell>
 
       <van-cell title="带宽" :value="bandwidth">
         <select name="bandwidth" v-model="bandwidth" class="form-control">
@@ -67,8 +55,6 @@ import {
   CellGroup,
   RadioGroup,
   Radio,
-  Picker,
-  Popup,
   Cell,
 } from "vant";
 import PageHeader from "../components/PageHeader.vue";
@@ -80,8 +66,6 @@ export default {
     vanCellGroup: CellGroup,
     vanRadioGroup: RadioGroup,
     vanRadio: Radio,
-    vanPicker: Picker,
-    vanPopup: Popup,
     vanCell: Cell,
     PageHeader
 },
